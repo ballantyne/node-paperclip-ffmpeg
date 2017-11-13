@@ -9,6 +9,10 @@ To install
 sudo add-apt-repository ppa:djcj/hybrid
 sudo apt-get update
 sudo apt-get install ffmpeg
+# if there is a better way to install this please let me know.
+
+# Maybe this would work for windows? https://www.wikihow.com/Install-FFmpeg-on-Windows
+# I haven't tested it.
 
 npm install node-paperclip-ffmpeg --save
 ```
@@ -22,17 +26,19 @@ const Paperclip    = require('node-paperclip');
 
 const Video = new Schema({});
 
-Video.plugin(Paperclip.plugins.mongoose, {files: [
-  { 
-    before_save: [{task: require('node-paperclip-ffmpeg')}]
-    class_name: 'video',
-    has_attached_file: 'video', 
-    styles: [
-      { original: true },
-    ],
-    storage: 'file'
+Video.plugin(Paperclip.plugins.mongoose, {
+  video: {
+    video: { 
+      before_save: [{task: require('node-paperclip-ffmpeg')}]
+      class_name: 'video',
+      has_attached_file: 'video', 
+      styles: [
+        { original: true },
+      ],
+      storage: 'file'
+    }
   }
-]})
+})
 
 module.exports     = mongoose.model('Video', Video);
 ```
@@ -52,7 +58,7 @@ router.post('/post_video',
     middleware.parse(), 
 
   function (req, res) {  
-    Video.create(req.body, function(err, doc) {
+    Video.create(req.body.video, function(err, doc) {
       res.redirect('/');
     });
 })
@@ -64,7 +70,7 @@ router.post('/post_video',
 
     <div>
       <label>File</label>
-      <input type="file" name="video" id="file">
+      <input type="file" name="video[video]" id="file">
     </div>
 
     <div  class="form-group">
