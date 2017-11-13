@@ -1,0 +1,23 @@
+{
+  "name": "node-paperclip-ffmpeg",
+  "version": "1.0.0",
+  "description": "This is a node-paperclip plugin that uses the ffmpeg to encode a stream videos to the file system or to aws.",
+  "main": "index.js",
+  "dependencies": {
+    "klass": "^1.4.1",
+    "stream": "0.0.2",
+    "stream-buffers": "^3.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Scott Ballantyne",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ballantyne/node-paperclip-ffmpeg.git"
+  }
+}
