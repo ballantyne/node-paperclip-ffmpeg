@@ -1,5 +1,4 @@
 node-paperclip-ffmpeg
-
 =========
 
 This is a plugin that works with node-paperclip.  It allows you to pass whatever options you want to ffmpeg and then stream to the file system or the cloud. 
