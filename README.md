@@ -60,7 +60,7 @@ const middleware   = require('node-paperclip').middleware
 
 router.post('/post_video',
 
-    middleware.parse(), 
+    middleware.parse({stream: true}), 
 
   function (req, res) {  
     Video.create(req.body.video, function(err, doc) {
