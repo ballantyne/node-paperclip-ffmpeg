@@ -29,7 +29,8 @@ const Video = new Schema({});
 Video.plugin(Paperclip.plugins.mongoose, {
   video: {
     video: { 
-      before_save: [
+      styles: [
+        { original: true },
         { 
           task: require('node-paperclip-ffmpeg'), 
           commands: [
@@ -39,11 +40,6 @@ Video.plugin(Paperclip.plugins.mongoose, {
         // hopefully you can use any of the options listed here:
         // https://github.com/fluent-ffmpeg/node-fluent-ffmpeg
         // I haven't been able to test this yet, 
-      ],
-      class_name: 'video',
-      has_attached_file: 'video', 
-      styles: [
-        { original: true },
       ],
       storage: 'file'
     }
