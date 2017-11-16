@@ -30,7 +30,12 @@ Video.plugin(Paperclip.plugins.mongoose, {
   video: {
     video: { 
       before_save: [
-        {task: require('node-paperclip-ffmpeg'), commands: [{ videoBitrate: 1000 }]} 
+        { 
+          task: require('node-paperclip-ffmpeg'), 
+          commands: [
+            { videoBitrate: 1000 }
+          ]
+        } 
         // hopefully you can use any of the options listed here:
         // https://github.com/fluent-ffmpeg/node-fluent-ffmpeg
         // I haven't been able to test this yet, 
