@@ -56,7 +56,7 @@ Here is an example of an express route that uses that Video model.
 const express      = require('express');
 const router       = express.Router();
 
-const Track        = require('video');
+const Video        = require('video');
 const middleware   = require('node-paperclip').middleware
 
 router.post('/post_video',
