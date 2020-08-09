@@ -105,7 +105,7 @@ guidelines:
 
 And once there are some contributors, then I would like to thank all of [the contributors](https://github.com/ballantyne/node-paperclip-ffmpeg/graphs/contributors)!
 
-Donations
+Tips
 ------------
 
 If you'd like to contribute with bitcoin or another cryptocurrency you can send coins to the addresses below:
